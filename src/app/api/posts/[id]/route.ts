@@ -1,10 +1,16 @@
 import { NextResponse } from "next/server";
-import data from "@/data.json";
+
+const posts: any = [
+  {
+    id: 12,
+    title: "Hello",
+    description: "Amazing post",
+  },
+];
 
 export async function GET(request: Request, context: any) {
   const { params } = context;
-  const user = data.filter((x) => params.userId === x.id.toString());
   return NextResponse.json({
-    user,
+    post: posts.find((x: any) => x.id.toString() === params.id),
   });
 }
