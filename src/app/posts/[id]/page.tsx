@@ -39,6 +39,7 @@ export default function PostID({ params }: any) {
 
   return (
     <main>
+      react baic
       {loading && <div>loading</div>}
       {!loading && (
         <div>

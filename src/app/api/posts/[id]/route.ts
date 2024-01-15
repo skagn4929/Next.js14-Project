@@ -6,6 +6,11 @@ const posts: any = [
     title: "Hello",
     description: "Amazing post",
   },
+  {
+    id: 23,
+    title: "Hello",
+    description: "Amazing post 23",
+  },
 ];
 
 export async function GET(request: Request, context: any) {
