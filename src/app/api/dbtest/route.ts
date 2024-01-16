@@ -16,9 +16,7 @@ export async function GET(request: Request, context: any) {
     // let testquery = `select * from post where postId = ${params.id}`;
     // const [rows, fields] = await connection.execute(testquery);
 
-    const [rows, fields] = await connection.execute(
-      `select user, host, plugin from user`
-    );
+    const [rows, fields] = await connection.execute(`SELECT name FROM user`);
 
     console.log("result is: ", rows);
 
