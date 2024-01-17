@@ -3,7 +3,7 @@
 - [벨로그](https://velog.io/@kitree/docker-mysql-%EA%B4%80%EB%A0%A8-%EC%A0%95%EB%A6%AC)에 정리함.
 
 ### 2. mysql tsetDB 안에 테이블 만들고 값 데이터 넣어서 프론트엔드로 가져온후 fetch 해보기.
-- 테이블 생성
+- user 테이블 생성
 ```sql
 CREATE TABLE user (
 id INT AUTO_INCREMENT PRIMARY KEY,
