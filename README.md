@@ -21,12 +21,14 @@ INSERT INTO user (email) VALUES ('ki@naver.com'), ('noh@gmail.com')
 - 프론트엔드로 가져오기
 ```tsx
 // api/dbtest/route.ts
+
 const [rows, fields] = await connection.execute(SELECT name, email FROM user);
 ```
 ---
 - fetch 하기
 ```tsx
 // page.tsx
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -82,7 +84,8 @@ export default function Home() {
 ### 3. id를 전달받아서 쿼리해보기
 - api 폴더 안에 user/[id] 폴더 만들고 route.ts 코드 작성
 ```ts
-// api/user/[id]/route.ts
+// route.ts
+
 import { NextResponse } from "next/server";
 import mysql from "mysql2/promise";
 
@@ -137,6 +140,8 @@ export async function GET(request: Request, context: any) {
 ---
 - app 폴더 안에 user/[id] 폴더 만들고 page.tsx 코드 작성
 ```tsx
+//page.tsx
+
 "use client";
 import { NextPage } from "next";
 import { useEffect, useState } from "react";
