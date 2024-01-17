@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 interface ApiResponse {
   ok: boolean;
   msg: string;
-  testResult: { name: string }[];
+  testResult: { name: string; email: string }[];
 }
 
 export default function Home() {
@@ -35,7 +35,9 @@ export default function Home() {
             <p>Data from API:</p>
             <ul>
               {data.testResult.map((item, index) => (
-                <li key={index}>{item.name}</li>
+                <li key={index}>
+                  Name: {item.name}, Email: {item.email}
+                </li>
               ))}
             </ul>
           </div>

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import mysql from "mysql2/promise"; // Note: Importing the promise-based version
+import mysql from "mysql2/promise";
 
 export async function GET(request: Request, context: any) {
   const { params } = context;
@@ -13,12 +13,19 @@ export async function GET(request: Request, context: any) {
   });
 
   try {
-    // let testquery = `select * from post where postId = ${params.id}`;
-    // const [rows, fields] = await connection.execute(testquery);
+    // params.id 값이 숫자로 전달되는지 확인
+    const userId = parseInt(params.id, 10);
 
-    const [rows, fields] = await connection.execute(
-      `SELECT name, email FROM user`
-    );
+    if (isNaN(userId)) {
+      // params.id가 유효한 숫자가 아니면 에러 응답
+      return NextResponse.json({
+        ok: false,
+        msg: "Invalid userId",
+      });
+    }
+
+    const testquery = `SELECT name, email FROM user WHERE id = ${userId}`;
+    const [rows, fields] = await connection.execute(testquery);
 
     console.log("result is: ", rows);
 
@@ -27,14 +34,15 @@ export async function GET(request: Request, context: any) {
       msg: "Success response",
       testResult: rows,
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error executing query:", error);
 
     return NextResponse.json({
       ok: false,
       msg: "Error executing query",
+      error: error.message,
     });
   } finally {
-    connection.end(); // Ensure the connection is closed, regardless of success or failure.
+    connection.end();
   }
 }
