@@ -1,4 +1,4 @@
-## ~수요일까지 숙제 
+## 학습한 내용
 ### 1. mysql docker 연동 관련 정리
 - [벨로그](https://velog.io/@kitree/docker-mysql-%EA%B4%80%EB%A0%A8-%EC%A0%95%EB%A6%AC)에 정리함.
 
